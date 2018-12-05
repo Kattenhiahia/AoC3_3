@@ -12,7 +12,6 @@ namespace Day5
 			//string input = "dabAcCaCBAcCcaDA";
 
 			Console.WriteLine($"input: {input.Length}");
-			//Console.WriteLine($"{part1(input).Length}");
 			part2(input);
 			Console.WriteLine("Press any key to exit.");
 			System.Console.ReadKey();
@@ -34,8 +33,6 @@ namespace Day5
 				{
 					++i;
 				}
-				//Console.WriteLine("part1...");
-
 			}
 			return input;
 		}
@@ -58,12 +55,10 @@ namespace Day5
 						if (res[j].ToString().ToLower() == remov)
 						{
 							res = res.Remove(j, 1);
-							//--j;
-							//j = Math.Max(i, 0);
+
 						}
 						else
 						{
-							//Console.Write($"{res[j]}");
 							j++;
 						}
 					}
