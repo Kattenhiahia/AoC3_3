@@ -19,16 +19,14 @@ namespace Day5
 			string s = input;
 			while (true)
 			{
-				Console.WriteLine($"length: {s.Length}");
 				for (int i = 0; i < (s.Length - 1); i++)
 				{
+					Console.WriteLine($"length: {s.Length}");
 					if (isOpposites(s[i], s[i + 1]))
 					{
 						// Sample: We want to remove 3 chars "cde"(index=2-4)
 						// Don't forget to make sure the string is not empty or too short
-						StringBuilder sb = new StringBuilder(input);
-						sb.Remove(i, 2);
-						s = sb.ToString();
+						s.Remove(i, 2);
 					}
 				}
 				if (s.Length < 15)
