@@ -7,42 +7,32 @@ namespace Day5
 	{
 		static void Main(string[] args)
 		{
-			string input = System.IO.File.ReadAllText(@"C:\Users\samue\source\repos\AoC18_2\Day2\input.txt");
-			part1(input);
-			//part2(input);
-			// Keep the console window open in debug mode.
+			string input = System.IO.File.ReadAllText(@"C:\GIT\AoC18\Day5\input.txt");
+			Console.WriteLine($"{part1(input).Length}");
+			
 			Console.WriteLine("Press any key to exit.");
 			System.Console.ReadKey();
 		}
-		static void part1(string input)
+		static string part1(string input)
 		{
-			string s = input;
-			while (true)
+			int i = 0;
+			while (i < input.Length - 1)
 			{
-				for (int i = 0; i < (s.Length - 1); i++)
+				string first = input[i].ToString();
+				string second = input[i+1].ToString();
+				if (first != second && first.Equals(second, StringComparison.InvariantCultureIgnoreCase))
 				{
-					Console.WriteLine($"length: {s.Length}");
-					if (isOpposites(s[i], s[i + 1]))
-					{
-						// Sample: We want to remove 3 chars "cde"(index=2-4)
-						// Don't forget to make sure the string is not empty or too short
-						s.Remove(i, 2);
-					}
+					input = input.Remove(i, 2);
+					i--;
+					i = Math.Max(i, 0);
 				}
-				if (s.Length < 15)
+				else
 				{
-					Console.WriteLine($" this is polymer: {s}");
+					i++;
 				}
 			}
-		}
-		static Boolean isOpposites(char a, char b)
-		{
-			if (a == char.ToUpper(b) || a == char.ToLower(b))
-			{
-				return true;
-				//ToLower, ToUpper
-			}
-			return false;
+
+			return input;
 		}
 	}
 }
