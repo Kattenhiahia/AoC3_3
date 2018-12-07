@@ -22,20 +22,23 @@ namespace day7
 			var inp = input.Split('\n');
 			foreach (string row in inp)
 			{
-
 				Console.WriteLine($"first: {row[5]}, 2nd: {row[36]}");
-				if (instructions.ContainsKey(row[5].ToString()))
+				if (!instructions.ContainsKey(row[5].ToString()))
 				{
-
+					instructions.Add(row[5].ToString(), 0);
 				}
-				else if (instructions.ContainsKey(row[36].ToString()))
+				else if (!instructions.ContainsKey(row[36].ToString()))
 				{
-
+					instructions.Add(row[36].ToString(), 1);
 				}
 				else
 				{
-
+					instructions[row[36].ToString()] = instructions[row[36].ToString()] + 1;
 				}
+			}
+			foreach (var v in instructions)
+			{
+				Console.WriteLine($"{v}");
 			}
 		}
 	}
