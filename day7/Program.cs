@@ -66,7 +66,6 @@ namespace day7
 			int j = 0;
 			string result = "";
 			string exec = "";
-			//string comp = "";
 			while (j < nodes)
 			{
 				exec = "Z";
